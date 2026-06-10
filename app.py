@@ -1,14 +1,7 @@
 import os
-import time
-import requests
 
-while True:
-    print("weather update")
+print("環境変数一覧")
+print(list(os.environ.keys()))
 
-    url = f"https://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid={os.environ['OPENWEATHER_KEY']}&units=metric"
-
-    data = requests.get(url).json()
-
-    print(data["main"]["temp"])
-
-    time.sleep(300)
+print("ある？")
+print("OPENWEATHER_KEY" in os.environ)
