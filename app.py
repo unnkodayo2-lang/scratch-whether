@@ -10,8 +10,5 @@ url = (
 
 data = requests.get(url).json()
 
-print("気温")
-print(data["main"]["temp"])
-
-print("天気")
-print(data["weather"][0]["description"])
+print("気温:", data["main"]["temp"], "℃")
+print("天気:", data["weather"][0]["description"])
