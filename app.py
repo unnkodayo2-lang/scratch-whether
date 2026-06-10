@@ -3,18 +3,15 @@ import requests
 
 key = os.environ["OPENWEATHER_KEY"]
 
-print("APIキー取得成功")
-
 url = (
     "https://api.openweathermap.org/data/2.5/weather"
-    f"?q=Tokyo&appid={key}&units=metric"
+    f"?q=Tokyo&appid={key}&units=metric&lang=ja"
 )
 
-print("APIアクセス中")
+data = requests.get(url).json()
 
-response = requests.get(url)
+print("気温")
+print(data["main"]["temp"])
 
-print("ステータス")
-print(response.status_code)
-
-print(response.text)
+print("天気")
+print(data["weather"][0]["description"])
