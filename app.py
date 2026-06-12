@@ -1,11 +1,14 @@
-import os
-import scratchattach as scratch3
+from flask import Flask
 
-print("ログイン開始")
+app = Flask(__name__)
 
-session = scratch3.login(
-    os.environ["SCRATCH_USERNAME"],
-    os.environ["SCRATCH_PASSWORD"]
-)
+@app.route("/")
+def home():
+    return "Weather Server OK!"
 
-print("ログイン成功")
+if __name__ == "__main__":
+    import os
+    app.run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 10000))
+    )
