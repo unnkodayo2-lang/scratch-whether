@@ -23,9 +23,9 @@ def update():
     key = os.environ["OPENWEATHER_KEY"]
 
     data = requests.get(
-        f"https://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid={key}&units=metric&lang=ja",
-        timeout=10
-    ).json()
+    f"https://api.openweathermap.org/data/2.5/weather?lat=35.694&lon=139.983&appid={key}&units=metric",
+    timeout=10
+).json()
 
     temp = round(data["main"]["temp"])
     humidity = data["main"]["humidity"]
